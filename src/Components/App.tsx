@@ -1,6 +1,6 @@
 import React, {ChangeEvent, Component} from 'react';
 import { TagItem } from './TagItem';
-import { Tag } from "./models/tag";
+import { Tag } from "../models/tag";
 
 interface Note {
     id: number,
@@ -12,7 +12,7 @@ interface Note {
 interface State {
     newNote: Note,
     notes: Note[],
-    newTag: Tag,
+    currentTag: Tag,
     tags: Tag[]
 }
 
@@ -26,10 +26,11 @@ class App extends Component<{}, State> {
         },
         notes: [],
 
-        newTag: {
+        currentTag: {
             id: 1,
             tagName: '',
             tagColor: '',
+            edit: false,
         },
         tags: [],
     };
@@ -38,12 +39,12 @@ class App extends Component<{}, State> {
         event.preventDefault();
 
         this.setState(prevState => ({
-            newTag: {
-                id: prevState.newTag.id + 1,
+            currentTag: {
+                id: prevState.currentTag.id + 1,
                 tagName: "",
                 tagColor: "",
             },
-            tags: [...prevState.tags, prevState.newTag]
+            tags: [...prevState.tags, prevState.currentTag]
         }));
     };
 
@@ -55,26 +56,43 @@ class App extends Component<{}, State> {
         }));
     };
 
+    choseTag = (chosenTag: Tag) => {
+        this.setState(prevState => ({
+            currentTag: {
+                ...chosenTag,
+                edit: true,
+            }
+        }))
+    };
+
+    editTag = (tagToEdit: Tag) => {
+        this.setState(prevState => ({
+            tags: [
+                ...prevState.tags.map(tags => tags.id === tagToEdit.id ? {...tagToEdit} : tags)
+            ]
+        }))
+    };
+
     onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         this.setState({
-            newTag: {
-                ...this.state.newTag,
+            currentTag: {
+                ...this.state.currentTag,
                 [event.target.name]: event.target.value
             }
         });
     };
 
   render() {
-    const {newTag, tags} = this.state;
+    const {currentTag, tags} = this.state;
 
     return (
         <div className='container'>
-            <form className="form-inline" onSubmit={this.addNewTag}>
+            <form className="form-inline" onSubmit={currentTag.edit ? this.editTag : this.addNewTag}>
                 <select
                     className="custom-select mt-2"
                     id="tagColor"
                     name="tagColor"
-                    value={newTag.tagColor}
+                    value={currentTag.tagColor}
                     onChange={this.onChange}
                 >
                     <option selected>Choose color</option>
@@ -90,12 +108,13 @@ class App extends Component<{}, State> {
                     placeholder="Name of Tag"
                     id="tagName"
                     name="tagName"
-                    value={newTag.tagName}
+                    value={currentTag.tagName}
                     onChange={this.onChange}
                 />
-                <button type="submit" className="btn btn-primary mt-2">Add new Tags</button>
+                <button type="submit" className="btn btn-primary mt-2">{currentTag.edit ? 'Save changes' : 'Add new Tags'}</button>
+                <button type="button" className="btn btn-danger mt-2" onClick={()=>alert('TO DO')}>Cancel</button>
             </form>
-            {tags.map(tag => <TagItem tag={tag} onDelete={this.deleteTag}/>)}
+            {tags.map(tag => <TagItem tag={tag} onDelete={this.deleteTag} onChose={this.choseTag}/>)}
         </div>
     )
   }
