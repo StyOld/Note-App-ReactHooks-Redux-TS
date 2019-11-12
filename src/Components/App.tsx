@@ -27,9 +27,9 @@ class App extends Component<{}, State> {
         notes: [],
 
         currentTag: {
-            id: 1,
+            id: Date.now(),
             tagName: '',
-            tagColor: '',
+            tagColor: 'empty',
             edit: false,
         },
         tags: [],
@@ -40,9 +40,10 @@ class App extends Component<{}, State> {
 
         this.setState(prevState => ({
             currentTag: {
-                id: prevState.currentTag.id + 1,
-                tagName: "",
-                tagColor: "",
+                id: Date.now(),
+                tagName: '',
+                tagColor: 'empty',
+                edit: false,
             },
             tags: [...prevState.tags, prevState.currentTag]
         }));
@@ -71,7 +72,7 @@ class App extends Component<{}, State> {
         this.setState(prevState => ({
             tags: [
                 ...prevState.tags.map(tags => tags.id === this.state.currentTag.id ? {...this.state.currentTag} : tags)
-            ]
+            ],
         }))
     };
 
@@ -84,8 +85,20 @@ class App extends Component<{}, State> {
         });
     };
 
+    clearForm = () => {
+        this.setState({
+            currentTag: {
+                id: Date.now(),
+                tagName: '',
+                tagColor: 'empty',
+                edit: false,
+            }
+        });
+    };
+
   render() {
     const {currentTag, tags} = this.state;
+    const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
 
     return (
         <div className='container'>
@@ -97,7 +110,7 @@ class App extends Component<{}, State> {
                     value={currentTag.tagColor}
                     onChange={this.onChange}
                 >
-                    <option selected>Choose color</option>
+                    <option defaultValue="empty">Choose color</option>
                     <option value="primary">Blue</option>
                     <option value="secondary">Grey</option>
                     <option value="success">Green</option>
@@ -113,10 +126,10 @@ class App extends Component<{}, State> {
                     value={currentTag.tagName}
                     onChange={this.onChange}
                 />
-                <button type="submit" className="btn btn-primary mt-2">{currentTag.edit ? 'Save changes' : 'Add new Tags'}</button>
-                <button type="button" className="btn btn-danger mt-2" onClick={()=>alert('TO DO')}>Cancel</button>
+                <button type="submit" className="btn btn-primary mt-2" disabled={disabled}>{currentTag.edit ? 'Save changes' : 'Add new Tags'}</button>
+                <button type="button" className="btn btn-danger mt-2" onClick={this.clearForm}>Clear</button>
             </form>
-            {tags.map(tag => <TagItem tag={tag} onDelete={this.deleteTag} onChose={this.choseTag}/>)}
+            {tags.map((tag, keyId) => <TagItem tag={tag} key={keyId} onDelete={this.deleteTag} onChose={this.choseTag}/>)}
         </div>
     )
   }
