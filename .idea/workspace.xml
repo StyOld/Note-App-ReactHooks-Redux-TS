@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1ab98a6e-4df6-485e-ae8d-74c334c9a735" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TagItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TagItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/tag.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tag.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +22,7 @@
   <component name="ProjectId" id="1TTMo6N0Ii3iAPqPOvbvM8oKq8d" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/mount/projects/new_auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -66,7 +63,7 @@
       <workItem from="1571945927121" duration="6500000" />
       <workItem from="1572383920703" duration="5681000" />
       <workItem from="1573469963496" duration="1091000" />
-      <workItem from="1573479804789" duration="7975000" />
+      <workItem from="1573479804789" duration="12565000" />
     </task>
     <servers />
   </component>

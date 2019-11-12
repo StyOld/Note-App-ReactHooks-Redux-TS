@@ -65,10 +65,12 @@ class App extends Component<{}, State> {
         }))
     };
 
-    editTag = (tagToEdit: Tag) => {
+    editTag = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
         this.setState(prevState => ({
             tags: [
-                ...prevState.tags.map(tags => tags.id === tagToEdit.id ? {...tagToEdit} : tags)
+                ...prevState.tags.map(tags => tags.id === this.state.currentTag.id ? {...this.state.currentTag} : tags)
             ]
         }))
     };
