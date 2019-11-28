@@ -7,7 +7,9 @@ interface Props {
     onChose: (tag: Tag) => void;
 }
 
-export const TagItem: FunctionComponent<Props> = ({ tag, onDelete, onChose }) => {
+export const TagItem: FunctionComponent<Props> = props => {
+    const { tag, onDelete, onChose } = props;
+
     return (
         <button type="button" className={`btn btn-${tag.tagColor}`} key={tag.id}>
             <div onClick={() => onChose(tag)}>{tag.tagName}</div>
