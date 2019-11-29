@@ -1,3 +1,5 @@
+import {ChangeEvent} from 'react';
+
 export interface Tag {
     id: number,
     tagName: string,
@@ -10,7 +12,8 @@ export interface TagsState {
     tags: Tag[]
 }
 
-// Describing the different ACTION NAMES available
+export type UpdateTagsParam = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+
 export const ADD_NEW_TAG = 'ADD_NEW_TAG';
 export const DELETE_TAG = 'DELETE_TAG';
 export const CHOSE_TAG = 'CHOSE_TAG';
@@ -38,6 +41,7 @@ interface EditTagAction {
 
 interface OnChangeAction {
     type: typeof ON_CHANGE;
+    payload: any; // TODO added interface
 }
 
 interface ClearFormAction {

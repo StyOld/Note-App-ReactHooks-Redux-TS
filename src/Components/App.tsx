@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Component} from 'react';
+import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { AppState } from "../store";
 import { TagsState } from "../store/tags/types";
@@ -17,94 +17,24 @@ interface AppProps {
 }
 
 class App extends Component<AppProps> {
-    // state = {
-    //     newNote: {
-    //         id: 1,
-    //         plaintext: '',
-    //         creationTime: 0,
-    //         tags: [],
-    //     },
-    //     notes: [],
-    //
-    //     currentTag: {
-    //         id: Date.now(),
-    //         tagName: '',
-    //         tagColor: 'empty',
-    //         edit: false,
-    //     },
-    //     tags: [],
-    // };
-    //
-    // addNewTag = (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //
-    //     this.setState(prevState => ({
-    //         currentTag: {
-    //             id: Date.now(),
-    //             tagName: '',
-    //             tagColor: 'empty',
-    //             edit: false,
-    //         },
-    //         tags: [...prevState.tags, prevState.currentTag]
-    //     }));
-    // };
-    //
-    // deleteTag = (tagToDelete: Tag) => {
-    //     this.setState(prevState => ({
-    //         tags: [
-    //             ...prevState.tags.filter(tags => tags.id !== tagToDelete.id)
-    //         ]
-    //     }));
-    // };
-    //
-    // choseTag = (chosenTag: Tag) => {
-    //     this.setState(prevState => ({
-    //         currentTag: {
-    //             ...chosenTag,
-    //             edit: true,
-    //         }
-    //     }))
-    // };
-    //
-    // editTag = (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //
-    //     this.setState(prevState => ({
-    //         tags: [
-    //             ...prevState.tags.map(tags => tags.id === this.state.currentTag.id ? {...this.state.currentTag} : tags)
-    //         ],
-    //     }))
-    // };
-    //
-    // onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    //     this.setState({
-    //         currentTag: {
-    //             ...this.state.currentTag,
-    //             [event.target.name]: event.target.value
-    //         }
-    //     });
-    // };
-    //
-    // clearForm = () => {
-    //     this.setState({
-    //         currentTag: {
-    //             id: Date.now(),
-    //             tagName: '',
-    //             tagColor: 'empty',
-    //             edit: false,
-    //         }
-    //     });
-    // };
+    addNewTag = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        this.props.addNewTag()
+    };
+
+    editTag = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        this.props.editTag()
+    };
 
   render() {
     const {currentTag, tags} = this.props.tags;
-    const {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm} = this.props;
+    const {deleteTag, choseTag, onChange, clearForm} = this.props;
     const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
-    console.log(this.props)
 
     return (
         <div className='container'>
-            <form className="form-inline" onSubmit={currentTag.edit ? editTag : addNewTag}>
+            <form className="form-inline" onSubmit={currentTag.edit ? this.editTag : this.addNewTag}>
                 <select
                     className="custom-select mt-2"
                     id="tagColor"
@@ -190,12 +120,4 @@ export default connect(
 //         tags: [],
 //     },
 //     notes: [],
-//
-//     currentTag: {
-//         id: Date.now(),
-//         tagName: '',
-//         tagColor: 'empty',
-//         edit: false,
-//     },
-//     tags: [],
 // };

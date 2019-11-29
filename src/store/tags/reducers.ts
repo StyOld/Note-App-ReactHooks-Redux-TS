@@ -52,6 +52,10 @@ export function tagsReducer(state = initialState, action: TagsActionTypes): Tags
         case ON_CHANGE:
             return {
                 ...state,
+                currentTag: {
+                    ...state.currentTag,
+                    [action.payload.name]: action.payload.value
+                }
             };
 
         case CLEAR_TAG_FORM:
