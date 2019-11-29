@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ab98a6e-4df6-485e-ae8d-74c334c9a735" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/scripts/actions/actionsTags.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/reducers/reducerTags.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/notes/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/notes/reducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/notes/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/tags/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/tags/reducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/tags/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/TagItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TagItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/reducers/reducers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/reducers/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/actions/actionsTags.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/reducers/reducerTags.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/reducers/reducers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/store/store.ts" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +79,7 @@
       <workItem from="1573479804789" duration="23633000" />
       <workItem from="1573725745318" duration="11487000" />
       <workItem from="1574702576201" duration="882000" />
-      <workItem from="1574946573448" duration="11671000" />
+      <workItem from="1574946573448" duration="25246000" />
     </task>
     <servers />
   </component>

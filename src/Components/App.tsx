@@ -1,114 +1,116 @@
 import React, {ChangeEvent, Component} from 'react';
+import { connect } from "react-redux";
+import { AppState } from "../store";
+import { TagsState } from "../store/tags/types";
+import { addNewTag, deleteTag, choseTag, editTag, onChange, clearForm } from "../store/tags/actions";
 import { TagItem } from './TagItem';
-import { Tag } from "../models/tag";
 
-interface Note {
-    id: number,
-    plaintext: string,
-    creationTime: number,
-    tags: Tag[],
+interface AppProps {
+    addNewTag: typeof addNewTag;
+    deleteTag: typeof deleteTag;
+    choseTag: typeof choseTag;
+    editTag: typeof editTag;
+    onChange: typeof onChange;
+    clearForm: typeof clearForm;
+    // notes: NotesState;
+    tags: TagsState;
 }
 
-interface State {
-    newNote: Note,
-    notes: Note[],
-    currentTag: Tag,
-    tags: Tag[]
-}
-
-class App extends Component<{}, State> {
-    state = {
-        newNote: {
-            id: 1,
-            plaintext: '',
-            creationTime: 0,
-            tags: [],
-        },
-        notes: [],
-
-        currentTag: {
-            id: Date.now(),
-            tagName: '',
-            tagColor: 'empty',
-            edit: false,
-        },
-        tags: [],
-    };
-
-    addNewTag = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        this.setState(prevState => ({
-            currentTag: {
-                id: Date.now(),
-                tagName: '',
-                tagColor: 'empty',
-                edit: false,
-            },
-            tags: [...prevState.tags, prevState.currentTag]
-        }));
-    };
-
-    deleteTag = (tagToDelete: Tag) => {
-        this.setState(prevState => ({
-            tags: [
-                ...prevState.tags.filter(tags => tags.id !== tagToDelete.id)
-            ]
-        }));
-    };
-
-    choseTag = (chosenTag: Tag) => {
-        this.setState(prevState => ({
-            currentTag: {
-                ...chosenTag,
-                edit: true,
-            }
-        }))
-    };
-
-    editTag = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        this.setState(prevState => ({
-            tags: [
-                ...prevState.tags.map(tags => tags.id === this.state.currentTag.id ? {...this.state.currentTag} : tags)
-            ],
-        }))
-    };
-
-    onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        this.setState({
-            currentTag: {
-                ...this.state.currentTag,
-                [event.target.name]: event.target.value
-            }
-        });
-    };
-
-    clearForm = () => {
-        this.setState({
-            currentTag: {
-                id: Date.now(),
-                tagName: '',
-                tagColor: 'empty',
-                edit: false,
-            }
-        });
-    };
+class App extends Component<AppProps> {
+    // state = {
+    //     newNote: {
+    //         id: 1,
+    //         plaintext: '',
+    //         creationTime: 0,
+    //         tags: [],
+    //     },
+    //     notes: [],
+    //
+    //     currentTag: {
+    //         id: Date.now(),
+    //         tagName: '',
+    //         tagColor: 'empty',
+    //         edit: false,
+    //     },
+    //     tags: [],
+    // };
+    //
+    // addNewTag = (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //
+    //     this.setState(prevState => ({
+    //         currentTag: {
+    //             id: Date.now(),
+    //             tagName: '',
+    //             tagColor: 'empty',
+    //             edit: false,
+    //         },
+    //         tags: [...prevState.tags, prevState.currentTag]
+    //     }));
+    // };
+    //
+    // deleteTag = (tagToDelete: Tag) => {
+    //     this.setState(prevState => ({
+    //         tags: [
+    //             ...prevState.tags.filter(tags => tags.id !== tagToDelete.id)
+    //         ]
+    //     }));
+    // };
+    //
+    // choseTag = (chosenTag: Tag) => {
+    //     this.setState(prevState => ({
+    //         currentTag: {
+    //             ...chosenTag,
+    //             edit: true,
+    //         }
+    //     }))
+    // };
+    //
+    // editTag = (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //
+    //     this.setState(prevState => ({
+    //         tags: [
+    //             ...prevState.tags.map(tags => tags.id === this.state.currentTag.id ? {...this.state.currentTag} : tags)
+    //         ],
+    //     }))
+    // };
+    //
+    // onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    //     this.setState({
+    //         currentTag: {
+    //             ...this.state.currentTag,
+    //             [event.target.name]: event.target.value
+    //         }
+    //     });
+    // };
+    //
+    // clearForm = () => {
+    //     this.setState({
+    //         currentTag: {
+    //             id: Date.now(),
+    //             tagName: '',
+    //             tagColor: 'empty',
+    //             edit: false,
+    //         }
+    //     });
+    // };
 
   render() {
-    const {currentTag, tags} = this.state;
+    const {currentTag, tags} = this.props.tags;
+    const {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm} = this.props;
     const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
+    console.log(this.props)
 
     return (
         <div className='container'>
-            <form className="form-inline" onSubmit={currentTag.edit ? this.editTag : this.addNewTag}>
+            <form className="form-inline" onSubmit={currentTag.edit ? editTag : addNewTag}>
                 <select
                     className="custom-select mt-2"
                     id="tagColor"
                     name="tagColor"
                     value={currentTag.tagColor}
-                    onChange={this.onChange}
+                    onChange={onChange}
                 >
                     <option defaultValue="empty">Choose color</option>
                     <option value="primary">Blue</option>
@@ -124,18 +126,26 @@ class App extends Component<{}, State> {
                     id="tagName"
                     name="tagName"
                     value={currentTag.tagName}
-                    onChange={this.onChange}
+                    onChange={onChange}
                 />
                 <button type="submit" className="btn btn-primary mt-2" disabled={disabled}>{currentTag.edit ? 'Save changes' : 'Add new Tags'}</button>
-                <button type="button" className="btn btn-danger mt-2" onClick={this.clearForm}>Clear</button>
+                <button type="button" className="btn btn-danger mt-2" onClick={clearForm}>Clear</button>
             </form>
-            {tags.map((tag, keyId) => <TagItem tag={tag} key={keyId} onDelete={this.deleteTag} onChose={this.choseTag}/>)}
+            {tags.map((tag, keyId) => <TagItem tag={tag} key={keyId} onDelete={deleteTag} onChose={choseTag}/>)}
         </div>
     )
   }
 }
 
-export default App;
+const mapStateToProps = (state: AppState) => ({
+    // notes: state.notes,
+    tags: state.tags
+});
+
+export default connect(
+    mapStateToProps,
+    { addNewTag, deleteTag, choseTag, editTag, onChange, clearForm }
+)(App);
 
 
 // type User = {
@@ -157,3 +167,35 @@ export default App;
 //
 // const ArrayFilterForName = (array: Array<User>, name: string) => { return array.filter(item => item.name === name) };
 // console.log(ArrayFilterForName(testUsers, '2'));
+
+// interface Note {
+//     id: number,
+//     plaintext: string,
+//     creationTime: number,
+//     tags: Tag[],
+// }
+
+// interface State {
+//     newNote: Note,
+//     notes: Note[],
+//     currentTag: Tag,
+//     tags: Tag[]
+// }
+
+// state = {
+//     newNote: {
+//         id: 1,
+//         plaintext: '',
+//         creationTime: 0,
+//         tags: [],
+//     },
+//     notes: [],
+//
+//     currentTag: {
+//         id: Date.now(),
+//         tagName: '',
+//         tagColor: 'empty',
+//         edit: false,
+//     },
+//     tags: [],
+// };
