@@ -1,4 +1,5 @@
 import { Tag, UpdateTagsParam, ADD_NEW_TAG, DELETE_TAG, CHOSE_TAG, EDIT_TAG, ON_CHANGE, CLEAR_TAG_FORM } from "./types";
+import React from "react";
 
 export function addNewTag() {
     return {

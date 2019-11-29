@@ -17,11 +17,13 @@ interface AppProps {
 }
 
 class App extends Component<AppProps> {
+    // TODO: implement to actions
     addNewTag = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         this.props.addNewTag()
     };
 
+    // TODO: implement to actions
     editTag = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         this.props.editTag()
@@ -72,9 +74,11 @@ const mapStateToProps = (state: AppState) => ({
     tags: state.tags
 });
 
+const mapDispatchProps = {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm};
+
 export default connect(
     mapStateToProps,
-    { addNewTag, deleteTag, choseTag, editTag, onChange, clearForm }
+    mapDispatchProps
 )(App);
 
 
