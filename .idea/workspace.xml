@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="1ab98a6e-4df6-485e-ae8d-74c334c9a735" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
+=======
+    <list default="true" id="1ab98a6e-4df6-485e-ae8d-74c334c9a735" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/TagItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TagItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/actions/actionsTags.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/reducers/reducerTags.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/reducers/reducers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/store/store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/tags/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tags/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/tags/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tags/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/tags/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tags/types.ts" afterDir="false" />
+    </list>
+>>>>>>> bf6d97325b542166d183b688d7a4b399d19b2d00
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
@@ -125,9 +144,15 @@
       </pane>
     </panes>
   </component>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1TTMo6N0Ii3iAPqPOvbvM8oKq8d" />
+>>>>>>> bf6d97325b542166d183b688d7a4b399d19b2d00
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Semenov_Test_for_Everad" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -135,6 +160,14 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/scripts" />
+      <recent name="$PROJECT_DIR$/src/store" />
+      <recent name="$PROJECT_DIR$/src/Components" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -162,6 +195,7 @@
       <workItem from="1571857383134" duration="7569000" />
       <workItem from="1571945927121" duration="6500000" />
       <workItem from="1572383920703" duration="5681000" />
+<<<<<<< HEAD
       <workItem from="1573469963496" duration="2590000" />
     </task>
     <servers />
@@ -169,6 +203,16 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="27416000" />
   </component>
+=======
+      <workItem from="1573469963496" duration="1091000" />
+      <workItem from="1573479804789" duration="23633000" />
+      <workItem from="1573725745318" duration="11487000" />
+      <workItem from="1574702576201" duration="882000" />
+      <workItem from="1574946573448" duration="37097000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> bf6d97325b542166d183b688d7a4b399d19b2d00
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -178,6 +222,7 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+<<<<<<< HEAD
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="870" extended-state="7" />
     <editor active="true" />
@@ -396,5 +441,22 @@
         </state>
       </provider>
     </entry>
+=======
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+>>>>>>> bf6d97325b542166d183b688d7a4b399d19b2d00
   </component>
 </project>
