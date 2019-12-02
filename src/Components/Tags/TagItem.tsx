@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Tag } from "../store/tags/types";
+import { Tag } from "../../store/tags/types";
 
 interface Props {
     tag: Tag;

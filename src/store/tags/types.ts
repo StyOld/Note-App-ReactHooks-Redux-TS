@@ -7,6 +7,10 @@ export const EDIT_TAG = 'EDIT_TAG';
 export const ON_CHANGE = 'ON_CHANGE';
 export const CLEAR_TAG_FORM = 'CLEAR_TAG_FORM';
 
+export type ClassNameTypes = {
+    className?: string;
+};
+
 export interface Tag {
     id: number,
     tagName: string,
