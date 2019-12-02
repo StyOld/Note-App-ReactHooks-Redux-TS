@@ -1,6 +1,7 @@
-import {FormEvent, ChangeEvent} from 'react';
+import {FormEvent, ChangeEvent, MouseEvent} from 'react';
 
 export const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
+export const ADD_TAG_TO_NOTE = 'ADD_TAG_TO_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const CHOSE_NOTE = 'CHOSE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
@@ -33,7 +34,7 @@ export interface onChangePayload {
 }
 
 export type OnChangeEvents = ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
-
+export type OnChangeOptions = MouseEvent<HTMLOptionElement, MouseEvent>
 export type FormEvents = FormEvent<HTMLFormElement>;
 
 export type ClassNameTypes = {
@@ -42,6 +43,11 @@ export type ClassNameTypes = {
 
 interface AddNewNoteAction {
     type: typeof ADD_NEW_NOTE;
+}
+
+interface AddTagToNoteAction {
+    type: typeof ADD_TAG_TO_NOTE;
+    payload: Tag;
 }
 
 interface DeleteNoteAction {
@@ -67,4 +73,4 @@ interface ClearFormAction {
     type: typeof CLEAR_NOTE_FORM;
 }
 
-export type NotesActionTypes =  AddNewNoteAction | DeleteNoteAction | ChoseNoteAction | EditNoteAction | OnChangeAction | ClearFormAction;
+export type NotesActionTypes =  AddNewNoteAction | AddTagToNoteAction | DeleteNoteAction | ChoseNoteAction | EditNoteAction | OnChangeAction | ClearFormAction;

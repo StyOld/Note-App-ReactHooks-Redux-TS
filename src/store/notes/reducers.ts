@@ -1,4 +1,4 @@
-import { NotesState, ADD_NEW_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes} from "./types";
+import { NotesState, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes} from "./types";
 
 const initialState: NotesState = {
     currentNote: {
@@ -24,6 +24,15 @@ export function notesReducer(state = initialState, action: NotesActionTypes): No
                     edit: false,
                 },
                 notes: [...state.notes, state.currentNote]
+            };
+
+        case ADD_TAG_TO_NOTE:
+            return {
+                ...state,
+                currentNote: {
+                    ...state.currentNote,
+                    tags: [...state.currentNote.tags, action.payload],
+                }
             };
 
         case DELETE_NOTE:

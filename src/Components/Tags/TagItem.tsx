@@ -1,6 +1,6 @@
 import React from 'react';
 import {choseTag, deleteTag} from "../../store/tags/actions";
-import { Tag } from "../../store/tags/types";
+import {Tag} from "../../store/tags/types";
 
 interface TagItemProps {
     tag: Tag;
@@ -14,9 +14,12 @@ export const TagItem = React.memo<TagItemProps>(props => {
     const { tag, onDelete, onChose } = props;
 
     return (
-        <button type="button" className={`btn btn-${tag.tagColor} m-1`} key={tag.id}>
-            <div className='' onClick={() => onChose(tag)}>{tag.tagName}</div>
-            <span className='badge badge-light' onClick={() => onDelete(tag)}>x</span>
+        <button
+            key={tag.id}
+            type="button"
+            className={`btn btn-${tag.tagColor} d-flex justify-content-between align-items-center m-1`}>
+            <div onClick={() => onChose(tag)}>{tag.tagName}</div>
+            <span className='badge badge-light ml-3' onClick={() => onDelete(tag)}>x</span>
         </button>
     )
 });

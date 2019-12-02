@@ -1,26 +1,29 @@
 import React from "react";
-import {editNote, addNewNote, onChange, clearForm} from "../../store/notes/actions";
+import {editNote, addNewNote, addTagToNote, onChange, clearForm} from "../../store/notes/actions";
+import {Tag} from "../../store/tags/types";
 import {Note} from "../../store/notes/types";
 
 interface NoteFormProps {
     currentNote: Note;
     editNote: typeof editNote;
     addNewNote: typeof addNewNote;
+    addTagToNote: typeof addTagToNote;
     onChange: typeof onChange;
     clearForm: typeof clearForm;
+    tags: Tag[]
 }
 
 export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
-    const {currentNote, editNote, addNewNote, onChange, clearForm} = props;
+    const {currentNote, tags, editNote, addNewNote, addTagToNote, onChange, clearForm} = props;
     // const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
-
+console.log('tags=', tags)
     return (
         <form className="form-inline col" onSubmit={currentNote.edit ? editNote : addNewNote}>
             <textarea
                 className="form-control m-1"
                 placeholder="Added plaintext"
-                id="noteName"
-                name="noteName"
+                id="plaintext"
+                name="plaintext"
                 value={currentNote.plaintext}
                 onChange={onChange}
             />
@@ -29,17 +32,29 @@ export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
                 id="tagColor"
                 name="tagColor"
                 // value={currentNote.tagColor}
-                onChange={onChange}
+                onChange={addTagToNote}
             >
-                {/* TODO : make it in map with const=[options]*/}
-                <option defaultValue="empty">Choose tags</option>
-                <option value="primary">Blue</option>
-                <option value="secondary">Grey</option>
-                <option value="success">Green</option>
-                <option value="danger">Red</option>
-                <option value="dark">Black</option>
-                <option value="light">White</option>
+                {tags.map((tagItem, keyId) => (
+                    <option
+                        key={keyId}
+                        value={tagItem.tagName}
+                        // onClick={addTagToNote}
+                    >
+                        {tagItem.tagName}
+                    </option>
+                ))}
             </select>
+            <div className='border border-primary'>
+                {currentNote.tags.map((tagItem, keyId) => (
+                    <button
+                        key={keyId}
+                        type="button"
+                        className={`btn btn-${tagItem.tagColor} m-1`}
+                        onClick={()=>{console.log('TODO')}}>
+                        {tagItem.tagName}
+                    </button>
+                ))}
+            </div>
             <div className='row m-1'>
                 <button type="submit" className="btn btn-primary m-1">{currentNote.edit ? 'Save changes' : 'Add new Note'}</button>
                 <button type="button" className="btn btn-danger m-1" onClick={clearForm}>Clear</button>

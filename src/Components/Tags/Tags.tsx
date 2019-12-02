@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { connect } from "react-redux";
-import { AppState } from "../../store";
-import { TagsState } from "../../store/tags/types";
-import { addNewTag, deleteTag, choseTag, editTag, onChange, clearForm } from "../../store/tags/actions";
+import {connect} from "react-redux";
+import {AppState} from "../../store";
+import {TagsState} from "../../store/tags/types";
+import {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm} from "../../store/tags/actions";
 import {TagForm} from "./TagForm";
 import {TagList} from "./TagList";
 
