@@ -10,7 +10,6 @@ interface TagFormProps {
     clearForm: typeof clearForm;
 }
 
-
 export const TagForm: React.FunctionComponent<TagFormProps> = props => {
     const {currentTag, editTag, addNewTag, onChange, clearForm} = props;
     const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';

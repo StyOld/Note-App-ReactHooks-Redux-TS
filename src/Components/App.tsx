@@ -35,20 +35,3 @@ export default App;
 //
 // const ArrayFilterForName = (array: Array<User>, name: string) => { return array.filter(item => item.name === name) };
 // console.log(ArrayFilterForName(testUsers, '2'));
-
-// interface State {
-//     newNote: Note,
-//     notes: Note[],
-//     currentTag: Tag,
-//     tags: Tag[]
-// }
-
-// state = {
-//     newNote: {
-//         id: 1,
-//         plaintext: '',
-//         creationTime: 0,
-//         tags: [],
-//     },
-//     notes: [],
-// };

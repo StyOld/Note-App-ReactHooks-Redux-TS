@@ -32,7 +32,7 @@ export interface onChangePayload {
     value: string
 }
 
-export type OnChangeEvents = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+export type OnChangeEvents = ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
 
 export type FormEvents = FormEvent<HTMLFormElement>;
 
