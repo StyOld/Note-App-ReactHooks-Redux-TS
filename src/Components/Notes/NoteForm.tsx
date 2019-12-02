@@ -16,7 +16,7 @@ interface NoteFormProps {
 export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
     const {currentNote, tags, editNote, addNewNote, addTagToNote, onChange, clearForm} = props;
     // const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
-console.log('tags=', tags)
+
     return (
         <form className="form-inline col" onSubmit={currentNote.edit ? editNote : addNewNote}>
             <textarea
@@ -37,8 +37,7 @@ console.log('tags=', tags)
                 {tags.map((tagItem, keyId) => (
                     <option
                         key={keyId}
-                        value={tagItem.tagName}
-                        // onClick={addTagToNote}
+                        value={JSON.stringify(tagItem)}
                     >
                         {tagItem.tagName}
                     </option>

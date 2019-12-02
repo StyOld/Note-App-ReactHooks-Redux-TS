@@ -31,7 +31,7 @@ export function notesReducer(state = initialState, action: NotesActionTypes): No
                 ...state,
                 currentNote: {
                     ...state.currentNote,
-                    tags: [...state.currentNote.tags, action.payload],
+                    tags: [...state.currentNote.tags, action.payload.value],
                 }
             };
 
