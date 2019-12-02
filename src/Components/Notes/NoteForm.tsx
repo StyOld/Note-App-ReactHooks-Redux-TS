@@ -29,9 +29,6 @@ export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
             />
             <select
                 className="custom-select m-1"
-                id="tagColor"
-                name="tagColor"
-                // value={currentNote.tagColor}
                 onChange={addTagToNote}
             >
                 {tags.map((tagItem, keyId) => (
