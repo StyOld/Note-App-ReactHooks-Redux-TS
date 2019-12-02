@@ -1,13 +1,16 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
+import {choseTag, deleteTag} from "../../store/tags/actions";
 import { Tag } from "../../store/tags/types";
 
-interface Props {
+interface TagItemProps {
     tag: Tag;
-    onDelete: (tag: Tag) => void;
-    onChose: (tag: Tag) => void;
+    onChose: typeof choseTag;
+    onDelete: typeof deleteTag;
+    // onDelete: (tag: Tag) => void;
+    // onChose: (tag: Tag) => void;
 }
 
-export const TagItem: FunctionComponent<Props> = props => {
+export const TagItem = React.memo<TagItemProps>(props => {
     const { tag, onDelete, onChose } = props;
 
     return (
@@ -16,4 +19,4 @@ export const TagItem: FunctionComponent<Props> = props => {
             <span onClick={() => onDelete(tag)}>x</span>
         </button>
     )
-};
+});

@@ -1,13 +1,9 @@
 import React from "react";
 
-type ClassNameTypes = {
-    className?: string;
-};
-
-class Notes extends React.Component<ClassNameTypes, {}> {
+class Notes extends React.Component {
     render() {
         return (
-            <div className='col'>
+            <div className='col-8'>
                 TODO
             </div>
         )

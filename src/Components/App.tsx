@@ -7,8 +7,8 @@ class App extends React.Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <Notes className='col-8'/>
-                    <Tags className='col-4'/>
+                    <Notes/>
+                    <Tags/>
                 </div>
             </div>
         )

@@ -7,10 +7,6 @@ export const EDIT_TAG = 'EDIT_TAG';
 export const ON_CHANGE = 'ON_CHANGE';
 export const CLEAR_TAG_FORM = 'CLEAR_TAG_FORM';
 
-export type ClassNameTypes = {
-    className?: string;
-};
-
 export interface Tag {
     id: number,
     tagName: string,
@@ -31,6 +27,10 @@ export interface onChangePayload {
 export type OnChangeEvents = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
 
 export type FormEvents = FormEvent<HTMLFormElement>;
+
+export type ClassNameTypes = {
+    className?: string;
+};
 
 interface AddNewTagTagAction {
     type: typeof ADD_NEW_TAG;

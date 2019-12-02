@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { AppState } from "../../store";
-import { TagsState, ClassNameTypes } from "../../store/tags/types";
+import { TagsState } from "../../store/tags/types";
 import { addNewTag, deleteTag, choseTag, editTag, onChange, clearForm } from "../../store/tags/actions";
-import { TagItem } from './../Tags/TagItem';
+import {TagForm} from "./TagForm";
+import {TagList} from "./TagList";
 
 interface TagProps {
     addNewTag: typeof addNewTag;
@@ -15,51 +16,30 @@ interface TagProps {
     tags: TagsState;
 }
 
-class Tags extends Component<TagProps & ClassNameTypes> {
+class Tags extends Component<TagProps> {
     render() {
         const {currentTag, tags} = this.props.tags;
         const {addNewTag, editTag, deleteTag, choseTag, onChange, clearForm} = this.props;
-        const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
 
         return (
-            <div className='col'>
-                {/*<TagForm/>*/}
-                {/*<TagList/>*/}
-                <form className="form-inline" onSubmit={currentTag.edit ? editTag : addNewTag}>
-                    <select
-                        className="custom-select mt-2"
-                        id="tagColor"
-                        name="tagColor"
-                        value={currentTag.tagColor}
-                        onChange={onChange}
-                    >
-                        <option defaultValue="empty">Choose color</option>
-                        <option value="primary">Blue</option>
-                        <option value="secondary">Grey</option>
-                        <option value="success">Green</option>
-                        <option value="danger">Red</option>
-                        <option value="dark">Black</option>
-                        <option value="light">White</option>
-                    </select>
-                    <input
-                        className="form-control mt-2"
-                        placeholder="Name of Tag"
-                        id="tagName"
-                        name="tagName"
-                        value={currentTag.tagName}
-                        onChange={onChange}
-                    />
-                    <button type="submit" className="btn btn-primary mt-2" disabled={disabled}>{currentTag.edit ? 'Save changes' : 'Add new Tags'}</button>
-                    <button type="button" className="btn btn-danger mt-2" onClick={clearForm}>Clear</button>
-                </form>
-                {tags.map((tag, keyId) => <TagItem tag={tag} key={keyId} onDelete={deleteTag} onChose={choseTag}/>)}
+            <div className='col-4'>
+                <TagForm
+                    currentTag={currentTag}
+                    addNewTag={addNewTag}
+                    editTag={editTag}
+                    onChange={onChange}
+                    clearForm={clearForm}/>
+                <TagList
+                    tags={tags}
+                    choseTag={choseTag}
+                    deleteTag={deleteTag}
+                />
             </div>
         )
     }
 }
 
 const mapStateToProps = (state: AppState) => ({
-    // notes: state.notes,
     tags: state.tags
 });
 
