@@ -10,6 +10,7 @@ interface TagFormProps {
     clearForm: typeof clearForm;
 }
 
+
 export const TagForm: React.FunctionComponent<TagFormProps> = props => {
     const {currentTag, editTag, addNewTag, onChange, clearForm} = props;
     const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
@@ -31,6 +32,7 @@ export const TagForm: React.FunctionComponent<TagFormProps> = props => {
                 value={currentTag.tagColor}
                 onChange={onChange}
             >
+                {/* TODO : make it in map with const=[options]*/}
                 <option defaultValue="empty">Choose color</option>
                 <option value="primary">Blue</option>
                 <option value="secondary">Grey</option>

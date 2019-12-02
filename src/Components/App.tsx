@@ -36,13 +36,6 @@ export default App;
 // const ArrayFilterForName = (array: Array<User>, name: string) => { return array.filter(item => item.name === name) };
 // console.log(ArrayFilterForName(testUsers, '2'));
 
-// interface Note {
-//     id: number,
-//     plaintext: string,
-//     creationTime: number,
-//     tags: Tag[],
-// }
-
 // interface State {
 //     newNote: Note,
 //     notes: Note[],

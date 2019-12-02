@@ -32,8 +32,7 @@ class Tags extends Component<TagProps> {
                 <TagList
                     tags={tags}
                     choseTag={choseTag}
-                    deleteTag={deleteTag}
-                />
+                    deleteTag={deleteTag}/>
             </div>
         )
     }
