@@ -1,6 +1,5 @@
-import {Note, OnChangeEvents, OnChangeOptions, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes,
+import {Note, OnChangeEvents, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes,
     FormEvents} from "./types";
-import {Tag} from "../tags/types";
 
 export function addNewNote(event: FormEvents) : NotesActionTypes {
     event.preventDefault();
@@ -9,10 +8,13 @@ export function addNewNote(event: FormEvents) : NotesActionTypes {
     }
 }
 
-export function addTagToNote(event: OnChangeEvents, tagForAddToNote: Tag) : NotesActionTypes {
+export function addTagToNote(event: OnChangeEvents) : NotesActionTypes {
     return {
         type: ADD_TAG_TO_NOTE,
-        payload: tagForAddToNote
+        payload: {
+            name: event.target.name,
+            value: JSON.parse(event.target.value)
+        }
     }
 }
 
