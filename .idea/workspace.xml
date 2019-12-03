@@ -4,12 +4,6 @@
     <list default="true" id="1ab98a6e-4df6-485e-ae8d-74c334c9a735" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Notes/NoteForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Notes/NoteForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Notes/Notes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Notes/Notes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Tags/TagItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Tags/TagItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Tags/Tags.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Tags/Tags.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/notes/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/notes/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/notes/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/notes/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/notes/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/notes/types.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +66,7 @@
       <workItem from="1573725745318" duration="11487000" />
       <workItem from="1574702576201" duration="882000" />
       <workItem from="1574946573448" duration="54429000" />
-      <workItem from="1575294036463" duration="9802000" />
+      <workItem from="1575294036463" duration="10607000" />
     </task>
     <servers />
   </component>
