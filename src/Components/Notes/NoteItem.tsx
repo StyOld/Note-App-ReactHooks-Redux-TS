@@ -13,6 +13,7 @@ export const NoteItem = React.memo<NoteItemProps>(props => {
     const { note, choseNote, deleteNote } = props;
 
     return (
+        // TODO - added buttons for Edit + Delete
         <div className="card">
             <div
                 className="card-body">
@@ -21,7 +22,7 @@ export const NoteItem = React.memo<NoteItemProps>(props => {
                 {note.tags.map((tagItem, keyId) => (
                     <span
                         key={keyId}
-                        className={`badge badge-${tagItem.tagColor} m-1`}>
+                        className={`badge badge-${tagItem.tagColor} badge-sm m-1`}>
                         {tagItem.tagName}
                     </span>
                 ))}
