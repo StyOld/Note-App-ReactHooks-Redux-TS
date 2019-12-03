@@ -1,4 +1,4 @@
-import {Tag, OnChangeEvents, ADD_NEW_TAG, DELETE_TAG, CHOSE_TAG, EDIT_TAG, ON_CHANGE, CLEAR_TAG_FORM, TagsActionTypes,
+import {Tag, OnChangeEvents, ADD_NEW_TAG, DELETE_TAG, CHOSE_TAG, EDIT_TAG, ON_CHANGE_TAG, CLEAR_TAG_FORM, TagsActionTypes,
     FormEvents} from "./types";
 
 export function addNewTag(event: FormEvents) : TagsActionTypes {
@@ -29,9 +29,9 @@ export function editTag(event: FormEvents) : TagsActionTypes {
     }
 }
 
-export function onChange(event: OnChangeEvents) : TagsActionTypes {
+export function onChangeTag(event: OnChangeEvents) : TagsActionTypes {
     return {
-        type: ON_CHANGE,
+        type: ON_CHANGE_TAG,
         payload: {
             name: event.target.name,
             value: event.target.value

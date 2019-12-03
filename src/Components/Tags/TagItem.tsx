@@ -17,7 +17,7 @@ export const TagItem = React.memo<TagItemProps>(props => {
         <button
             key={tag.id}
             type="button"
-            className={`btn btn-${tag.tagColor} d-flex justify-content-between align-items-center m-1`}>
+            className={`btn btn-${tag.tagColor} m-1`}>
             <div onClick={() => onChose(tag)}>{tag.tagName}</div>
             <span className='badge badge-light ml-3' onClick={() => onDelete(tag)}>x</span>
         </button>
