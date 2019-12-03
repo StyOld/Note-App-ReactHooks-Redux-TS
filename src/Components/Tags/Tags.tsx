@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {AppState} from "../../store";
 import {TagsState} from "../../store/tags/types";
-import {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm} from "../../store/tags/actions";
+import {addNewTag, deleteTag, choseTag, editTag, onChangeTag, clearForm} from "../../store/tags/actions";
 import {TagForm} from "./TagForm";
 import {TagList} from "./TagList";
 
@@ -11,7 +11,7 @@ interface TagProps {
     deleteTag: typeof deleteTag;
     choseTag: typeof choseTag;
     editTag: typeof editTag;
-    onChange: typeof onChange;
+    onChangeTag: typeof onChangeTag;
     clearForm: typeof clearForm;
     tags: TagsState;
 }
@@ -19,7 +19,7 @@ interface TagProps {
 class Tags extends Component<TagProps> {
     render() {
         const {currentTag, tags} = this.props.tags;
-        const {addNewTag, editTag, deleteTag, choseTag, onChange, clearForm} = this.props;
+        const {addNewTag, editTag, deleteTag, choseTag, onChangeTag, clearForm} = this.props;
 
         return (
             <div className='col-4'>
@@ -27,7 +27,7 @@ class Tags extends Component<TagProps> {
                     currentTag={currentTag}
                     addNewTag={addNewTag}
                     editTag={editTag}
-                    onChange={onChange}
+                    onChangeTag={onChangeTag}
                     clearForm={clearForm}/>
                 <TagList
                     tags={tags}
@@ -42,7 +42,7 @@ const mapStateToProps = (state: AppState) => ({
     tags: state.tags
 });
 
-const mapDispatchProps = {addNewTag, deleteTag, choseTag, editTag, onChange, clearForm};
+const mapDispatchProps = {addNewTag, deleteTag, choseTag, editTag, onChangeTag, clearForm};
 
 export default connect(
     mapStateToProps,

@@ -1,4 +1,4 @@
-import { TagsState, ADD_NEW_TAG, DELETE_TAG, CHOSE_TAG, EDIT_TAG, ON_CHANGE, CLEAR_TAG_FORM, TagsActionTypes} from "./types";
+import { TagsState, ADD_NEW_TAG, DELETE_TAG, CHOSE_TAG, EDIT_TAG, ON_CHANGE_TAG, CLEAR_TAG_FORM, TagsActionTypes} from "./types";
 
 const initialState: TagsState = {
     currentTag: {
@@ -49,7 +49,7 @@ export function tagsReducer(state = initialState, action: TagsActionTypes): Tags
                 ],
             };
 
-        case ON_CHANGE:
+        case ON_CHANGE_TAG:
             return {
                 ...state,
                 currentTag: {

@@ -1,5 +1,5 @@
 import React from "react";
-import {editNote, addNewNote, addTagToNote, onChange, clearForm} from "../../store/notes/actions";
+import {editNote, addNewNote, addTagToNote, onChangeNote, clearForm} from "../../store/notes/actions";
 import {Tag} from "../../store/tags/types";
 import {Note} from "../../store/notes/types";
 
@@ -8,13 +8,17 @@ interface NoteFormProps {
     editNote: typeof editNote;
     addNewNote: typeof addNewNote;
     addTagToNote: typeof addTagToNote;
-    onChange: typeof onChange;
+    onChangeNote: typeof onChangeNote;
     clearForm: typeof clearForm;
     tags: Tag[]
 }
 
 export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
-    const {currentNote, tags, editNote, addNewNote, addTagToNote, onChange, clearForm} = props;
+    const {currentNote, tags, editNote, addNewNote, addTagToNote, onChangeNote, clearForm} = props;
+    const optionWithDefaultValue = (arr: Tag[]) : Tag[] => {
+        return [{id: 0, tagName: 'Choose Tag', tagColor: 'empty'}, ...arr];
+    };
+
     // const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
 
     return (
@@ -25,16 +29,17 @@ export const NoteForm: React.FunctionComponent<NoteFormProps> = props => {
                 id="plaintext"
                 name="plaintext"
                 value={currentNote.plaintext}
-                onChange={onChange}
+                onChange={onChangeNote}
             />
             <select
                 className="custom-select m-1"
                 onChange={addTagToNote}
             >
-                {tags.map((tagItem, keyId) => (
+                {optionWithDefaultValue(tags).map((tagItem, keyId) => (
                     <option
                         key={keyId}
                         value={JSON.stringify(tagItem)}
+                        defaultValue={tagItem.id === 0 ? tagItem.tagName : ''}
                     >
                         {tagItem.tagName}
                     </option>

@@ -1,4 +1,4 @@
-import {Note, OnChangeEvents, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes,
+import {Note, OnChangeEvents, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE_NOTE, CLEAR_NOTE_FORM, NotesActionTypes,
     FormEvents} from "./types";
 
 export function addNewNote(event: FormEvents) : NotesActionTypes {
@@ -39,9 +39,9 @@ export function editNote(event: FormEvents) : NotesActionTypes {
     }
 }
 
-export function onChange(event: OnChangeEvents) : NotesActionTypes {
+export function onChangeNote(event: OnChangeEvents) : NotesActionTypes {
     return {
-        type: ON_CHANGE,
+        type: ON_CHANGE_NOTE,
         payload: {
             name: event.target.name,
             value: event.target.value

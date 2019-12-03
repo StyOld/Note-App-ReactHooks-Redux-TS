@@ -5,7 +5,7 @@ export const ADD_TAG_TO_NOTE = 'ADD_TAG_TO_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const CHOSE_NOTE = 'CHOSE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
-export const ON_CHANGE = 'ON_CHANGE';
+export const ON_CHANGE_NOTE = 'ON_CHANGE_NOTE';
 export const CLEAR_NOTE_FORM = 'CLEAR_NOTE_FORM';
 
 export interface Tag {
@@ -43,6 +43,7 @@ export type FormEvents = FormEvent<HTMLFormElement>;
 
 export type ClassNameTypes = {
     className?: string;
+    style?: string
 };
 
 interface AddNewNoteAction {
@@ -69,7 +70,7 @@ interface EditNoteAction {
 }
 
 interface OnChangeAction {
-    type: typeof ON_CHANGE;
+    type: typeof ON_CHANGE_NOTE;
     payload: onChangePayload;
 }
 

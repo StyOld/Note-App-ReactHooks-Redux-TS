@@ -1,17 +1,17 @@
 import React from "react";
-import {editTag, addNewTag, onChange, clearForm} from "../../store/tags/actions";
+import {editTag, addNewTag, onChangeTag, clearForm} from "../../store/tags/actions";
 import {Tag} from "../../store/tags/types";
 
 interface TagFormProps {
     currentTag: Tag;
     editTag: typeof editTag;
     addNewTag: typeof addNewTag;
-    onChange: typeof onChange;
+    onChangeTag: typeof onChangeTag;
     clearForm: typeof clearForm;
 }
 
 export const TagForm: React.FunctionComponent<TagFormProps> = props => {
-    const {currentTag, editTag, addNewTag, onChange, clearForm} = props;
+    const {currentTag, editTag, addNewTag, onChangeTag, clearForm} = props;
     const disabled = currentTag.tagName === '' || currentTag.tagColor === 'empty';
 
     return (
@@ -22,14 +22,14 @@ export const TagForm: React.FunctionComponent<TagFormProps> = props => {
                 id="tagName"
                 name="tagName"
                 value={currentTag.tagName}
-                onChange={onChange}
+                onChange={onChangeTag}
             />
             <select
                 className="custom-select m-1"
                 id="tagColor"
                 name="tagColor"
                 value={currentTag.tagColor}
-                onChange={onChange}
+                onChange={onChangeTag}
             >
                 {/* TODO : make it in map with const=[options]*/}
                 <option defaultValue="empty">Choose color</option>

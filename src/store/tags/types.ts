@@ -4,7 +4,7 @@ export const ADD_NEW_TAG = 'ADD_NEW_TAG';
 export const DELETE_TAG = 'DELETE_TAG';
 export const CHOSE_TAG = 'CHOSE_TAG';
 export const EDIT_TAG = 'EDIT_TAG';
-export const ON_CHANGE = 'ON_CHANGE';
+export const ON_CHANGE_TAG = 'ON_CHANGE_TAG';
 export const CLEAR_TAG_FORM = 'CLEAR_TAG_FORM';
 
 export interface Tag {
@@ -51,7 +51,7 @@ interface EditTagAction {
 }
 
 interface OnChangeAction {
-    type: typeof ON_CHANGE;
+    type: typeof ON_CHANGE_TAG;
     payload: onChangePayload;
 }
 

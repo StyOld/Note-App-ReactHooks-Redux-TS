@@ -1,4 +1,4 @@
-import { NotesState, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE, CLEAR_NOTE_FORM, NotesActionTypes} from "./types";
+import { NotesState, ADD_NEW_NOTE, ADD_TAG_TO_NOTE, DELETE_NOTE, CHOSE_NOTE, EDIT_NOTE, ON_CHANGE_NOTE, CLEAR_NOTE_FORM, NotesActionTypes} from "./types";
 
 const initialState: NotesState = {
     currentNote: {
@@ -17,6 +17,7 @@ export function notesReducer(state = initialState, action: NotesActionTypes): No
             return {
                 ...state,
                 currentNote: {
+                    ...state.currentNote,
                     id: Date.now(),
                     plaintext: '',
                     creationTime: Date.now(),
@@ -60,7 +61,7 @@ export function notesReducer(state = initialState, action: NotesActionTypes): No
                 ],
             };
 
-        case ON_CHANGE:
+        case ON_CHANGE_NOTE:
             return {
                 ...state,
                 currentNote: {
